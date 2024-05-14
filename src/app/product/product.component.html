@@ -1,0 +1,29 @@
+<H1 class="content">{{content}}</H1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">ProductName</th>
+      <th scope="col">ProductCode</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Rating</th>
+      <th scope="col">Image</th>  
+    </tr>
+  </thead>
+  <tbody *ngFor="let product of products">
+    <tr>
+      <th scope="row">{{product.productId}}</th>
+      <td>{{product.productName}}</td>
+      <td>{{product.productCode}}</td>
+      <td>{{product.description}}</td>
+      <td>{{product.price}}</td>
+      <td>{{product.starRating}}</td>
+      <td><img src="{{product.imageUrl}}"/></td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" type="button" 
+  (click)="readMore()">Read More
+</button>
