@@ -9,10 +9,15 @@ export class StarComponent implements OnInit {
   @Input() rating = 0;
   @Output() ratingClicked : EventEmitter<any> = new EventEmitter<any>();
 
+  stars = [];
+
   constructor() { }
 
   ngOnInit() {
-    console.log(this.rating);
+    this.rating = Math.floor(this.rating);
+    for (let index = 0; index < this.rating; index++) {
+      this.stars.push(index);    
+    }
   }
 
   click(){
