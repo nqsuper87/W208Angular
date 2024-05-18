@@ -7,7 +7,7 @@ import { IProduct } from '../entities/product';
   styleUrls: ['./product.component.css']
 })
 export class ProductComponent implements OnInit {
-
+  tableWidth = 200;
   content = "";
   products: IProduct[] = [
     {
@@ -121,6 +121,11 @@ export class ProductComponent implements OnInit {
   readMore(){
     console.log("Hello class WD18305");
     this.content = "Hello class WD18305";
+  }
+
+  onRatingClicked(event){
+    console.log("EventEmitter from Product List", event);
+    
   }
 
 }
