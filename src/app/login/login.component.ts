@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
@@ -7,27 +6,16 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('loginForm') loginForm: NgForm;
-  user = {
-    email: '',
-    password: ''
-  }
-
+  userName = "abc";
   constructor() { }
 
   ngOnInit() {
   }
 
-  suggest(){
-    this.user.email = "fpoly@gmail.com";
-  }
-
-  onSubmit(loginForm : NgForm){
-    console.log("loginForm:", loginForm.value);
-  }
-
-  onSubmitWithViewChild(){
-    console.log("loginForm:", this.loginForm.value);
+  handleUsername(event){
+    console.log(event.target.value);
+    console.log("username: " + this.userName);
+    
   }
 
 }

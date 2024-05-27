@@ -5,7 +5,7 @@ export class AuthService {
 
   constructor() { }
 
-  loggedIn = false;
+  loggedIn = true;
 
   isAuthenticated() {
     const promise = new Promise(
