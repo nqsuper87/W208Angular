@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
   }
 
   suggest(){
+    console.log("suggestion!");
     this.user.email = "fpoly@gmail.com";
   }
 
