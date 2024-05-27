@@ -1,17 +1,15 @@
-
 <form (ngSubmit)="onSubmit(loginForm)" #loginForm="ngForm" >
   <div class="form-group">
   <label>Tài khoản</label>
 
   <input type="email" required minlength="6" class="form-control" 
-    ngModel name="user" [(ngModel)]="user.email">
+    ngModel name="user" #userEmail="ngModel" [(ngModel)]="user.email">
     <a class="btn btn-secondary" (click)="suggest()">Tên đề xuất</a>
-  <span *ngIf="!user.valid&&(user.dirty&&user.touched)">Email không hợp lệ!</span>
+  <span *ngIf="!userEmail.valid&&(userEmail.dirty&&userEmail.touched)">Email không hợp lệ!</span>
   </div>
   <div class="form-group">
   <label>Mật khẩu</label>
-  <input type="password" class="form-control" name="pass" [(ngModel)]="user.password">
+  <input type="password" class="form-control" ngModel name="pass" [(ngModel)]="user.password">
   </div>
   <button type="submit" class="btn btn-primary">Đăng Nhập</button>
 </form>
-  
