@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { StarComponent } from './star/star.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
@@ -19,6 +19,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
+import { ManageProductComponent } from './manage-product/manage-product.component';
 
 
 @NgModule({
@@ -36,12 +37,14 @@ import { AuthService } from './auth.service';
     EditProductComponent,
     PageNotFoundComponent,
     AdminComponent,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    ManageProductComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]

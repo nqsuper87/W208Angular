@@ -10,6 +10,7 @@ import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
+import { ManageProductComponent } from './manage-product/manage-product.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'product/:id/Edit', component: EditProductComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'manageProduct', component: ManageProductComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
