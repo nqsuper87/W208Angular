@@ -11,6 +11,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { PostComponent } from './post/post.component';
 
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
   { path: 'product/:id/Edit', component: EditProductComponent },
   { path: 'login', component: LoginComponent },
   { path: 'manageProduct', component: ManageProductComponent },
+  { path: 'post', component: PostComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

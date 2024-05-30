@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
@@ -20,6 +21,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { ManageProductComponent } from './manage-product/manage-product.component';
+import { PostComponent } from './post/post.component';
 
 
 @NgModule({
@@ -38,13 +40,15 @@ import { ManageProductComponent } from './manage-product/manage-product.componen
     PageNotFoundComponent,
     AdminComponent,
     AdminDashboardComponent,
-    ManageProductComponent
+    ManageProductComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
