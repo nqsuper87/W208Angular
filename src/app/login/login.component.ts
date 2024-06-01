@@ -1,34 +1,27 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
-  @ViewChild('loginForm') loginForm: NgForm;
-  user = {
-    email: '',
-    password: ''
-  }
+export class LoginComponent {
+  email: string;
+  password: string;
+  errorMessage: string;
 
-  constructor() { }
+  constructor(private authService: AuthService, private router: Router) {}
 
-  ngOnInit() {
-  }
-
-  suggest(){
-    console.log("suggestion!");
-    this.user.email = "fpoly@gmail.com";
-  }
-
-  onSubmit(loginForm : NgForm){
-    
-    console.log("loginForm:", loginForm.value);
-  }
-
-  onSubmitWithViewChild(){
-    console.log("loginForm:", this.loginForm.value);
+  login() {
+    this.authService.login({ email: this.email, password: this.password }).subscribe(
+      res => {
+        this.router.navigate(['/post']);
+      },
+      err => {
+        this.errorMessage = 'Invalid credentials';
+      }
+    );
   }
 }

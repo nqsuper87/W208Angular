@@ -12,6 +12,8 @@ import { AuthGuard } from './auth.guard';
 import { LoginComponent } from './login/login.component';
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { PostComponent } from './post/post.component';
+import { RegisterComponent } from './register/register.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 const routes: Routes = [
@@ -19,13 +21,7 @@ const routes: Routes = [
     path: 'admin',
     component: AdminComponent,
     canActivate: [AuthGuard],
-    children: [
-      {
-        path: '', canActivateChild: [AuthGuard], children: [
-          { path: '', component: AdminDashboardComponent }
-        ]
-      }
-    ]
+    data: { expectedRole: 'admin' }
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -35,6 +31,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'manageProduct', component: ManageProductComponent },
   { path: 'post', component: PostComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent },
 ];
 

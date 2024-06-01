@@ -42,3 +42,4 @@ testem.log
 Thumbs.db
 /BackEnd-Nodejs/node_modules
 BackEnd-Nodejs/package-lock.json
+package-lock.json

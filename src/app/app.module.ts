@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
@@ -23,6 +23,9 @@ import { AuthService } from './auth.service';
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { PostComponent } from './post/post.component';
 import { PostService } from './post.service';
+import { ProfileComponent } from './profile/profile.component';
+import { RegisterComponent } from './register/register.component';
+import { AuthInterceptor } from './auth.interceptor';
 
 
 @NgModule({
@@ -42,7 +45,9 @@ import { PostService } from './post.service';
     AdminComponent,
     AdminDashboardComponent,
     ManageProductComponent,
-    PostComponent
+    PostComponent,
+    ProfileComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,12 @@ import { PostService } from './post.service';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, AuthService, PostService],
+  providers: [AuthGuard,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }, AuthService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
