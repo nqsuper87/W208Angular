@@ -4,7 +4,6 @@ import { environment } from "../environments/environment";
 
 @Injectable()
 export class PostService {
-
   urlPost = environment.url + "/posts";
 
   constructor(private httpService: HttpClient) { }
@@ -14,9 +13,7 @@ export class PostService {
   }
 
   createPost(dataPost){
-    this.httpService.post(this.urlPost,dataPost).subscribe(data =>{
-      console.log("Created Post Success");
-    });
+    return this.httpService.post(this.urlPost,dataPost);
   }
 
 }

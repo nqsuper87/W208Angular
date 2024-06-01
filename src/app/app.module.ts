@@ -22,6 +22,7 @@ import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
 import { ManageProductComponent } from './manage-product/manage-product.component';
 import { PostComponent } from './post/post.component';
+import { PostService } from './post.service';
 
 
 @NgModule({
@@ -50,7 +51,7 @@ import { PostComponent } from './post/post.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService, PostService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

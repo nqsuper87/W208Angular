@@ -8,8 +8,9 @@ import {PostService} from '../post.service';
   styleUrls: ['./post.component.css']
 })
 export class PostComponent implements OnInit {
-
+  error;
   posts;
+  isLoading = false;
   constructor(private postService : PostService) { }
 
   ngOnInit() {
@@ -21,13 +22,28 @@ export class PostComponent implements OnInit {
     //   console.log(data);
     //   this.posts = data;
     // });
+    this.isLoading = true;
     this.postService.getAllPosts().subscribe(data =>{
+      this.isLoading = false;
       this.posts = data;
-    });
+    },
+    error => {
+      if(error.status == '404'){
+        this.error = "Loi khong tim thay";
+      }
+      else{
+        console.log(error);
+        this.error = "Loi server " + error.message;
+      }
+    }
+    );
   }
 
   createPost(dataPost){
-    this.postService.createPost(dataPost);
+    this.postService.createPost(dataPost).subscribe(data =>{
+      console.log("Created Post Success");
+      this.fetchAllPosts();
+    });
   }
 
   onCreate(){
