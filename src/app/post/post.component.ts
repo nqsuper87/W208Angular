@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import {PostService} from '../post.service';
 
 @Component({
   selector: 'app-post',
@@ -8,25 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  url = 'http://localhost:3000/api/posts';
   posts;
-  constructor(private httpService : HttpClient) { }
+  constructor(private postService : PostService) { }
 
   ngOnInit() {
-    this.getAllPosts();
+    this.fetchAllPosts();
   }
 
-  getAllPosts(){
-    this.httpService.get(this.url).subscribe(data =>{
-      console.log(data);
+  fetchAllPosts(){
+    // this.httpService.get(this.url).subscribe(data =>{
+    //   console.log(data);
+    //   this.posts = data;
+    // });
+    this.postService.getAllPosts().subscribe(data =>{
       this.posts = data;
     });
   }
 
   createPost(dataPost){
-    this.httpService.post(this.url,dataPost).subscribe(data =>{
-      this.getAllPosts();
-    });
+    this.postService.createPost(dataPost);
   }
 
   onCreate(){
