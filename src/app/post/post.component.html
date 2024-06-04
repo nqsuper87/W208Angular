@@ -3,7 +3,7 @@
 <div *ngIf="posts&&posts.length>0">
 
   <br/>
-  <button (click)="onCreate()" class="btn-primary">Create New Post</button>
+  <button *ngIf="authService.hasRole('admin')" (click)="onCreate()" class="btn-primary">Create New Post</button>
   <br/>
 
   <table style="margin-top: 10px;" border="1">

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import {PostService} from '../post.service';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-post',
@@ -11,7 +12,7 @@ export class PostComponent implements OnInit {
   error;
   posts;
   isLoading = false;
-  constructor(private postService : PostService) { }
+  constructor(private postService : PostService, private authService: AuthService) { }
 
   ngOnInit() {
     this.fetchAllPosts();

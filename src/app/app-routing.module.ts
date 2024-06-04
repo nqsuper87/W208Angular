@@ -31,8 +31,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'manageProduct', component: ManageProductComponent },
   { path: 'post', component: PostComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
+  { path: 'register', component : RegisterComponent },
+  { path: 'profile', data: { expectedRole: 'user' }, component: ProfileComponent, canActivate: [AuthGuard]},
   { path: '**', component: PageNotFoundComponent },
 ];
 
