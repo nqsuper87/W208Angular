@@ -12,6 +12,7 @@ export class PostComponent implements OnInit {
   error;
   posts;
   isLoading = false;
+  p: number = 1;
   constructor(private postService : PostService, private authService: AuthService) { }
 
   ngOnInit() {

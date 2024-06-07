@@ -16,7 +16,6 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { AdminComponent } from './admin/admin.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
@@ -26,7 +25,7 @@ import { PostService } from './post.service';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './auth.interceptor';
-
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -42,7 +41,6 @@ import { AuthInterceptor } from './auth.interceptor';
     ProductDetailComponent,
     EditProductComponent,
     PageNotFoundComponent,
-    AdminComponent,
     AdminDashboardComponent,
     ManageProductComponent,
     PostComponent,
@@ -54,7 +52,8 @@ import { AuthInterceptor } from './auth.interceptor';
     FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxPaginationModule
   ],
   providers: [AuthGuard,
     {
