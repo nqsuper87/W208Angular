@@ -26,6 +26,7 @@ export class PostComponent implements OnInit {
     // });
     this.isLoading = true;
     this.postService.getAllPosts().subscribe(data =>{
+      debugger;
       this.isLoading = false;
       this.posts = data;
     },

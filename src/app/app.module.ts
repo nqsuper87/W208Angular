@@ -19,13 +19,13 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { AuthGuard } from './auth.guard';
 import { AuthService } from './auth.service';
-import { ManageProductComponent } from './manage-product/manage-product.component';
 import { PostComponent } from './post/post.component';
 import { PostService } from './post.service';
 import { ProfileComponent } from './profile/profile.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './auth.interceptor';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -42,7 +42,6 @@ import {NgxPaginationModule} from 'ngx-pagination';
     EditProductComponent,
     PageNotFoundComponent,
     AdminDashboardComponent,
-    ManageProductComponent,
     PostComponent,
     ProfileComponent,
     RegisterComponent

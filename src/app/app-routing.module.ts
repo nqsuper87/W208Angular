@@ -29,7 +29,6 @@ const routes: Routes = [
   { path: 'product/:id', component: ProductDetailComponent },
   { path: 'product/:id/Edit', component: EditProductComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'manageProduct', component: ManageProductComponent },
   { path: 'post', component: PostComponent },
   { path: 'register', component : RegisterComponent },
   { path: 'profile', data: { expectedRole: 'user' }, component: ProfileComponent, canActivate: [AuthGuard]},
