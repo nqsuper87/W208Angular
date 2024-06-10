@@ -10,6 +10,7 @@ export class ManageUsersComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    debugger;
   }
 
 }

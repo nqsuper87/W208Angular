@@ -26,6 +26,9 @@ import { RegisterComponent } from './register/register.component';
 import { AuthInterceptor } from './auth.interceptor';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { AdminModule } from './admin/admin.module';
+import { firebaseConfig } from './firebase.config';
+import * as firebase from 'firebase/app';
+import 'firebase/storage';
 
 @NgModule({
   declarations: [
@@ -62,4 +65,8 @@ import { AdminModule } from './admin/admin.module';
     }, AuthService, PostService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  constructor(){
+    firebase.initializeApp(firebaseConfig);
+  }
+}
